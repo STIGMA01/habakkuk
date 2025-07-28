@@ -8,6 +8,8 @@ services:
   #   env_file:
   #     - ./backend/.env
   #     - ./database/.env
+  #   environment:
+  #     - ENV=${ENV}
   #   depends_on:
   #     - db
   #   expose:
@@ -22,6 +24,8 @@ services:
   #     dockerfile: Dockerfile
   #   env_file:
   #     - ./frontend/.env
+  #   environment:
+  #     - ENV=${ENV}   
   #   volumes:
   #     # - ./frontend:/app
   #     - fe-dist:/app/dist
@@ -35,7 +39,7 @@ services:
     image: postgres:15
     restart: unless-stopped
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:15432:5432"
     env_file:
       - ./database/.env
     volumes:

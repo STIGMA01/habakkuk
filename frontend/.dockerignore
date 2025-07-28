@@ -1,0 +1,54 @@
+# General
+node_modules
+dist
+build
+.cache
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment / Credentials
+.env
+.env.*
+*.local
+*.secret.*
+*.pem
+*.key
+*.crt
+*.cert
+secret.*
+secrets/
+config/secret.*
+config/*.secret.*
+# private/
+*.sqlite3
+
+# Tools
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# Sample / Test
+tests/
+__tests__/
+coverage/
+docs/
+example/
+examples/
+*.md
+*.pdf
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# OS
+ehthumbs.db
+Icon?
+Desktop.ini
+*.bak
+*.old

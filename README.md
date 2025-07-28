@@ -18,12 +18,19 @@
 ## 구성
 
 ### .env
-ENV: 실행 모드 분기 옵션. dev, local, prod 중에 택해야 하며, entrypoint에 따라 실행 모드가 조절된다.
-
+각 docker service 안에 .env 파일이 별도로 존재한다. (절대 외부 노출 금지)
+|   항목    |   설명                    |
+|----------|----------------------------|
+|ENV        | 실행 모드 분기 옵션. dev, local, prod 중에 택해야 하며, entrypoint에 따라 실행 모드가 조절된다.|
 
 ## 실행
-```
-# In WSL(Windows Linux Subsystem)
-# WSL에서는 도커 Daemon을 직접 실행해주어야 함.
-sudo service docker start
-```
+
+> **WSL 환경인 경우:**
+>    ```
+>    # In WSL(Windows Linux Subsystem)
+>    # WSL에서는 도커 Daemon을 직접 실행해주어야 함.
+>    sudo service docker start
+>    ```
+
+
+

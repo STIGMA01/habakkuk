@@ -1,4 +1,4 @@
-# Backend Development 
+# BE Development 
 
 ## v 0.1
 - Django 프로젝트 시작

@@ -1,0 +1,26 @@
+/* html, body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+} */
+html, body {
+    font-family: 'Pretendard', sans-serif;
+}
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
+}
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0d6efd; 
+    padding-bottom: 10px;
+}
+.card-header-custom {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+.table-sm th, .table-sm td {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
