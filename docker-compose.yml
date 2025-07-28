@@ -1,0 +1,71 @@
+services:
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./backend:/app
+  #   env_file:
+  #     - ./backend/.env
+  #     - ./database/.env
+  #   depends_on:
+  #     - db
+  #   expose:
+  #     - 8000
+  #   networks:
+  #     - backend
+  #     - shared
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   env_file:
+  #     - ./frontend/.env
+  #   volumes:
+  #     # - ./frontend:/app
+  #     - fe-dist:/app/dist
+  #   # command: npm run dev
+  #   expose:
+  #     - 5173
+  #   networks:
+  #     - shared
+
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5432:5432"
+    env_file:
+      - ./database/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    expose:
+      - 5432
+    networks:
+      - backend
+
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:80:80"
+    env_file:
+      - .env
+    volumes:
+      - fe-dist:/usr/share/nginx/html:ro
+    # depends_on:
+    #   - backend
+    #   - frontend
+    networks:
+      - shared
+
+volumes:
+  pgdata:
+  fe-dist:
+
+networks:
+  shared: 
+  backend:
+
