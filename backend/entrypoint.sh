@@ -2,6 +2,7 @@
 
 echo "Starting Django with ENV=$ENV"
 
+cd /app/src
 if [ "$ENV" = "prod" ]; then
   echo "Starting Gunicorn server for PRODUCTION"
   # 마이그레이션도 여기서 할 수 있음

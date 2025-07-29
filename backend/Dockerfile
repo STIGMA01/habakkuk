@@ -14,7 +14,7 @@ COPY ./requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY . .
 
 # 예) ENV=dev or local or prod
 ARG ENV=dev
