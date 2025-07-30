@@ -35,8 +35,7 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
 additional_patterns = [
     SettingsValidateGeneralPattern('DEBUG', truthiness_check=False, 
                                    type_check=bool, additional_validate_func=lambda value: value==False),      # Check DEBUG must be FALSE
-    SettingsValidateGeneralPattern('ALLOWED_HOSTS', truthiness_check=False, 
-                                   type_check=list, additional_validate_func=lambda value: not(value)),        # ALLOWED_HOSTS must be empty.
+    SettingsValidateGeneralPattern('ALLOWED_HOSTS', truthiness_check=True, type_check=list),                   # ALLOWED_HOSTS
     SettingsValidateGeneralPattern('CORS_ALLOW_ALL_ORIGINS', truthiness_check=False, 
                                    type_check=bool, additional_validate_func=lambda value: value==False),      # CORS_ALLOW_ALL_ORIGINS must be FALSE
 ]
