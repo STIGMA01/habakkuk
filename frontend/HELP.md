@@ -41,4 +41,16 @@ https://vite.dev/config/
 >    * src/components/layout/AppHeader.vue  
 >    * src/components/product/ProductCard.vue  
 >    * src/components/user/UserAvatar.vue  
- 
+
+```bash
+src/
+├── assets/          # 이미지, 스타일 등
+├── components/      # 공통 UI 컴포넌트
+├── views/           # 페이지 단위 컴포넌트
+├── router/          # vue-router 설정
+├── store/           # Pinia 또는 Vuex
+├── services/        # API 호출 모듈
+├── types/           # TypeScript 타입 정의
+├── utils/           # 공용 유틸리티
+└── App.vue / main.ts
+```

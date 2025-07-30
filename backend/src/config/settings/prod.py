@@ -1,9 +1,17 @@
-# settings/production.py
+"""
+In Production Mode
+
+"""
 from .base import *
+
 
 DEBUG = False       # WARNING: DO NOT 'TRUE'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'awakening-christ.org',
+    'www.awakening-christ.org',
+    'frontend',     # Docker
+]
 
 STATIC_ROOT = '/var/www/web/static/'
 
@@ -16,7 +24,22 @@ STATIC_ROOT = '/var/www/web/static/'
 
 CORS_ALLOW_ALL_ORIGINS = False      # WARNING: DO NOT 'TRUE'
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://.*\.awakening-christ\.net$",
+    r"^https://.*\.awakening-christ\.org$",
 ]
+
+
+
+#-----------------------------
+#       Validation
+#-----------------------------
+additional_patterns = [
+    SettingsValidateGeneralPattern('DEBUG', truthiness_check=False, 
+                                   type_check=bool, additional_validate_func=lambda value: value==False),      # Check DEBUG must be FALSE
+    SettingsValidateGeneralPattern('ALLOWED_HOSTS', truthiness_check=False, 
+                                   type_check=list, additional_validate_func=lambda value: not(value)),        # ALLOWED_HOSTS must be empty.
+    SettingsValidateGeneralPattern('CORS_ALLOW_ALL_ORIGINS', truthiness_check=False, 
+                                   type_check=bool, additional_validate_func=lambda value: value==False),      # CORS_ALLOW_ALL_ORIGINS must be FALSE
+]
+exec_validate_settings(__name__, additional_patterns)
 
 

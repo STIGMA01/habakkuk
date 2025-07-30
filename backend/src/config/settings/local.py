@@ -1,3 +1,8 @@
+"""
+In local settings
+
+"""
+
 from .base import *
 DEBUG = True
 
@@ -13,5 +18,13 @@ ALLOWED_IPS = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+
+
+#-----------------------------
+#       Validation
+#-----------------------------
+additional_patterns = [
+]
+exec_validate_settings(__name__, additional_patterns)
 
 

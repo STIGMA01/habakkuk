@@ -13,9 +13,12 @@ from os import path
 from pathlib import Path
 from modules.utils.docker import in_docker
 from dotenv import load_dotenv
-from . import parse_env
+from .utils.env import parse_env
+from .utils.validation import exec_validate_settings, SettingsValidateGeneralPattern
 
 load_dotenv()
+
+# ------
 
 VERSION = "0.0.5"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = parse_env('DJANGO_SECRET_KEY', force=True)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -130,10 +133,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-#---------------------------------------------------------------
-#---------------------------------------------------------------
-#---------------------------------------------------------------
-#---------------------------------------------------------------
+
+#=============================================
+#
+#         Customized Settings Begin
+#
+#=============================================
+
 
 STATICFILES_DIRS = [
     path.join(BASE_DIR, 'static'),
@@ -219,4 +225,5 @@ SPECTACULAR_SETTINGS = {
     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
     'REDOC_DIST': 'SIDECAR',
 }
+
 
